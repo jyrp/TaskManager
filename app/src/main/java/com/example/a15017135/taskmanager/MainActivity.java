@@ -17,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Task> tasks;
-    Integer tvID;
-    String tvName;
-    String tvDesc;
 
 
     @Override
@@ -31,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         tasks = new ArrayList<Task>();
         Helper dbh = new Helper(MainActivity.this);
-        tasks.clear();
         tasks.addAll(dbh.getAllTasks());
         dbh.close();
             aa = new TaskAdapter(this, R.layout.taskrow, tasks);

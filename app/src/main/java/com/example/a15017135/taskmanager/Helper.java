@@ -46,11 +46,11 @@ public class Helper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertTask(String name,String description) {
+    public long insertTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_DESCRIPTION, description);
+        values.put(COLUMN_NAME, task.getName());
+        values.put(COLUMN_DESCRIPTION, task.getDescription());
         long result = db.insert(TABLE_TASK, null, values);
         if (result == -1) {
             Log.d("DBHelper", "Insert failed");
